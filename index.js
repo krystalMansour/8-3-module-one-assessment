@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -134,8 +135,18 @@ return moviesRated;
       // Toy Story 4
     };
  */
-function findById() {}
-
+function findById(movies, ID) {
+    if (!movies.length) {
+      return null
+    }
+    let movieFound = null
+    for(let movie of movies) {
+      if (movie.imdbID.includes(ID)) {
+        return movie
+      }
+    }
+    return movieFound
+  }
 /**
  * filterByGenre()
  * -----------------------------
